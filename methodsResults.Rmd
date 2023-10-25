@@ -1,0 +1,31 @@
+### Differential Expression Analysis
+This is done to observe quantitative changes in expression levels between experimental groups. Read count data is collected and statistical data analysis is performed for this purpose. There are two steps involved.
+
+## 1. Estimation of Relative Abundance
+## 2. Statistical Data Analysis
+
+1. This is done to check the number of NGS reads that match a gene within a given genome. 
+Salmon is used of the purpose of estimation of relative abundance. 
+Steps Involved:
+a. Load salmon.
+b. Build salmon index from the de-novo transcriptome. 
+c. Perform salmon abundance estimation.
+d. Align them to aipIndex using salmon.
+e. Use kable to format the data. 
+
+2. The second process utilizes tximport package to import the Salmon abundance estimate (Sonsen et al). 
+In order to utilize Salmon input in tximport, we create a table mapping transcripts to genes.
+Import salmon alignments into DESeq2 and perform differential expression analysis. 
+
+### Results 
+library(knitr)
+de_anno <- read.csv("deAnnotated.csv", header= T)
+kable(de_anno)
+
+### Reference:
+[1]Differential gene expression analysis
+   Embl-Ebi
+   https://www.ebi.ac.uk/training/online/courses/functional-genomics-ii-common-technologies-and-data-analysis-methods/rna-sequencing/performing-a-rna-seq-      experiment/data-analysis/differential-gene-expression-analysis/
+[2]Statistical methods for identifying differentially expressed genes in RNA-Seq experiments - Cell & Bioscience
+   Fang et al.
+   https://cellandbioscience.biomedcentral.com/articles/10.1186/2045-3701-2-26
